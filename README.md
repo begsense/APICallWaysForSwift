@@ -3,12 +3,13 @@
 A Swift project demonstrating three different ways to call an API:
 1. Using **escaping closures**.
 2. Using **Combine**.
-3. Using **async/await**.
+3. Using **async/await (modern Swift syntax)**.
 
 ## Features
 - Fetch data from [JSONPlaceholder](https://jsonplaceholder.typicode.com/posts).
 - Display data in a `UITableView`.
 - Modular implementation with reusable patterns.
+- protocol delegates, and closures for managing data flow between components.
 
 ## Project Structure
 - **Services**: Handles API calls using different approaches (`ClosureService`, `CombineService`, `AsyncAwaitService`).
