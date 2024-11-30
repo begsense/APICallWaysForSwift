@@ -14,7 +14,7 @@ protocol DataUpdateProtocol: AnyObject {
 
 final class EClosureViewModel {
     
-    private var dataService: EClosureService
+    private var eClosureService: EClosureService
     
     weak var delegate: DataUpdateProtocol?
     
@@ -27,14 +27,14 @@ final class EClosureViewModel {
     
     
     init(dataService: EClosureService) {
-        self.dataService = dataService
+        self.eClosureService = dataService
         fetchData()
     }
     
     private func fetchData() {
         let url = "https://jsonplaceholder.typicode.com/posts"
         
-        dataService.fetchData(urlString: url) { (result: Result<[Posts], Error>) in
+        eClosureService.fetchData(urlString: url) { (result: Result<[Posts], Error>) in
             switch result {
             case .success(let data):
                 self.downloadedData = data
