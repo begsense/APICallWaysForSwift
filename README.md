@@ -87,5 +87,3 @@ A Swift project demonstrating three different ways to call an API:
 Created by **BegSense**. Feel free to reach out for feedback or collaboration!
 
 ---
-
-*(Optional)* If you like this project, consider giving it a ⭐!
