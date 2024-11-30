@@ -21,7 +21,7 @@ A Swift project demonstrating three different ways to call an API:
 - Demonstrates the traditional approach with completion handlers.
 - Example:
     ```swift
-       dataService.fetchData(urlString: url) { (result: Result<[Posts], Error>) in
+       eClosureService.fetchData(urlString: url) { (result: Result<[Posts], Error>) in
             switch result {
             case .success(let data):
                 self.downloadedData = data
