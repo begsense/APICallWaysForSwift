@@ -85,4 +85,4 @@ extension EClosureView: UITableViewDataSource {
     }
 }
 
-// Comments do same thing with closures (communication)
+// Alternative: Using closures instead of delegates for communication.

@@ -21,6 +21,7 @@ public class EClosureService {
         URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
             if error != nil {
                 completion(.failure(NetworkError.urlError))
+                return
             }
             
             guard let response = response as? HTTPURLResponse else {
