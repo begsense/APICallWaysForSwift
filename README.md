@@ -22,52 +22,21 @@ A Swift project demonstrating three different ways to call an API:
 - Demonstrates the traditional approach with completion handlers.
 - Example:
     ```swift
-       eClosureService.fetchData(urlString: url) { (result: Result<[Posts], Error>) in
-            switch result {
-            case .success(let data):
-                self.downloadedData = data
-                self.delegate?.updateData()
-            case .failure(let error):
-                let errorMessage = self.handleError(error)
-                self.delegate?.showError(message: errorMessage)
-            }
-        }
+       func fetchData<T: Decodable>(urlString: String, completion: @escaping (Result<T,Error>) -> ()) 
     ```
 
 ### 2. Combine
 - Uses **Combine Framework** for reactive programming.
 - Example:
     ```swift
-        combineService.fetchData(urlString: url, type: [Posts].self)
-            .sink { [weak self] completion in
-                switch completion {
-                case .failure(let error):
-                    let errorMessage = self?.handleError(error) ?? "Unknown error"
-                    self?.delegate?.showError(message: errorMessage)
-                case .finished:
-                    break
-                }
-            } receiveValue: { [weak self] fetchedData in
-                self?.downloadedData = fetchedData
-                self?.delegate?.updateData()
-            }
-            .store(in: &cancellable)
+        func fetchData<T: Decodable>(urlString: String, type: T.Type) -> AnyPublisher<T, NetworkError>
     ```
 
 ### 3. Async/Await
 - Leverages modern Swift syntax for clean and readable code.
 - Example:
     ```swift
-        do {
-            let data = try await asyncAwaitService.fetchData(urlString: url, type: [Posts].self)
-            self.downloadedData = data
-            delegate?.updateData()
-        } catch let error as NetworkError {
-            let errorMessage = handleError(error)
-            delegate?.showError(message: errorMessage)
-        } catch {
-            delegate?.showError(message: error.localizedDescription)
-        }
+        func fetchData<T: Decodable>(urlString: String, type: T.Type) async throws -> T
     ```
 
 ## How to Run
