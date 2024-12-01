@@ -87,7 +87,6 @@ A Swift project demonstrating three different ways to call an API:
 - Swift 5.5+
 - Xcode 14+
 
-## Contact
-Created by **BegSense**. Feel free to reach out for feedback or collaboration!
+Feel free to reach out for feedback or collaboration!
 
 ---
